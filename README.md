@@ -1,10 +1,6 @@
 # themer-gnome-terminal [![Travis](https://img.shields.io/travis/agarrharr/themer-gnome-terminal.svg)](https://travis-ci.org/agarrharr/themer-gnome-terminal)
 
-A Terminal.app theme generator for [themer](https://github.com/mjswensen/themer).
-
-## Dependencies
-
-This module utilizes [Swift](https://swift.org/) and the [AppKit](https://developer.apple.com/reference/appkit) library to create the contents of the theme file. Install Xcode and you should be good to go.
+A GNOME Terminal theme generator for [themer](https://github.com/mjswensen/themer).
 
 ## Installation & usage
 
