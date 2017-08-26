@@ -1,0 +1,38 @@
+{
+  "name": "themer-gnome-terminal",
+  "version": "1.0.0",
+  "description": "A GNOME Terminal theme generator for themer.",
+  "main": "lib/index.js",
+  "engines": {
+    "node": ">=6.11"
+  },
+  "author": "agarrharr",
+  "license": "MIT",
+  "jest": {
+    "rootDir": "lib"
+  },
+  "scripts": {
+    "build": "eslint src && babel --out-dir lib --copy-files src",
+    "start": "watch 'npm run test' src",
+    "test": "npm run build && jest",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.5.2",
+    "eslint": "^3.18.0",
+    "jest": "^19.0.2",
+    "themer-colors-default": "^1.0.3",
+    "watch": "^1.0.2"
+  },
+  "peerDependencies": {
+    "themer": "^2.1.0"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.23.0",
+    "pn": "^1.0.0",
+    "themer": "^2.2.2"
+  },
+  "repository": "git@github.com:agarrharr/themer-gnome-terminal.git"
+}
