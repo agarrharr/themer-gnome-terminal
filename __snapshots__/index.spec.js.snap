@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`themer Alfred.app theme template should render properly 1`] = `
+"#!/bin/bash
+
+gnome_color () {
+  AA=\${1:1:2}
+  BB=\${1:3:2}
+  CC=\${1:5:2}
+
+  echo \\"#\${AA}\${AA}\${BB}\${BB}\${CC}\${CC}\\"
+}
+
+rgb_color() {
+  hexinput=$(echo $1 | cut -c2-7 | tr '[:lower:]' '[:upper:]')  # uppercase
+  a=$(echo $hexinput | cut -c-2)
+  b=$(echo $hexinput | cut -c3-4)
+  c=$(echo $hexinput | cut -c5-6)
+
+  r=$(echo \\"ibase=16; $a\\" | bc)
+  g=$(echo \\"ibase=16; $b\\" | bc)
+  b=$(echo \\"ibase=16; $c\\" | bc)
+
+  echo \\"rgb(\${r}, \${g}, \${b})\\"
+}
+
+COLOR_01=$(rgb_color \\"#282629\\")              # HOST
+COLOR_02=$(rgb_color \\"#FF4050\\")           # SYNTAX_STRING
+COLOR_03=$(rgb_color \\"#A4CC35\\")           # COMMAND
+COLOR_04=$(rgb_color \\"#FFD24A\\")           # COMMAND_COLOR2
+COLOR_05=$(rgb_color \\"#66BFFF\\")           # PATH
+COLOR_06=$(rgb_color \\"#F553BF\\")           # SYNTAX_VAR
+COLOR_07=$(rgb_color \\"#26C99E\\")           # PROMPT
+COLOR_08=$(rgb_color \\"#E0DCE0\\")           #
+
+COLOR_09=$(rgb_color \\"#474247\\")           #
+COLOR_10=$(rgb_color \\"#F28144\\")           # COMMAND_ERROR
+COLOR_11=$(rgb_color \\"#26C99E\\")           # EXEC
+COLOR_12=$(rgb_color \\"#FFD24A\\")           #
+COLOR_13=$(rgb_color \\"#66BFFF\\")           # FOLDER
+COLOR_14=$(rgb_color \\"#F553BF\\")           #
+COLOR_15=$(rgb_color \\"#26C99E\\")           #
+COLOR_16=$(rgb_color \\"#FFFCFF\\")           #
+
+BACKGROUND_COLOR=$(gnome_color '#282629')
+FOREGROUND_COLOR=$(gnome_color '#E0DCE0')   # Text
+CURSOR_COLOR=$(gnome_color '#CC78FA') # Cursor
+
+gnomeVersion=\\"$(expr \\"$(gnome-terminal --version)\\" : '.* (.*[.].*[.].*)$')\\"
+dircolors_checked=false
+
+profiles_path=/org/gnome/terminal/legacy/profiles:
+
+set_theme() {
+  profile=$(get_uuid $1)
+  profile_path=$profiles_path/$profile
+
+  dconf write $profile_path/palette \\"['\${COLOR_01}', '\${COLOR_02}', '\${COLOR_03}', '\${COLOR_04}', '\${COLOR_05}', '\${COLOR_06}', '\${COLOR_07}', '\${COLOR_08}', '\${COLOR_09}', '\${COLOR_10}', '\${COLOR_11}', '\${COLOR_12}', '\${COLOR_13}', '\${COLOR_14}', '\${COLOR_15}', '\${COLOR_16}']\\"
+
+  # set foreground, background and highlight color
+  # dconf write $profile_path/bold-color \\"'$SOME_COLOR'\\"
+  dconf write $profile_path/background-color \\"'$BACKGROUND_COLOR'\\"
+  dconf write $profile_path/foreground-color \\"'$FOREGROUND_COLOR'\\"
+
+  # make sure the profile is set to not use theme colors
+  dconf write $profile_path/use-theme-colors \\"false\\"
+
+  # set highlighted color to be different from foreground color
+  dconf write $profile_path/bold-color-same-as-fg \\"true\\"
+}
+
+
+get_uuid() {
+  profiles=($(dconf list $profiles_path/ | grep ^: | sed 's/\\\\///g'))
+  # Print the UUID linked to the profile name sent in parameter
+  local profile_name=$1
+  for i in \${!profiles[*]}
+    do
+      if [[ \\"$(dconf read $profiles_path/\${profiles[i]}/visible-name)\\" ==           \\"'$profile_name'\\" ]]
+        then echo \\"\${profiles[i]}\\"
+        return 0
+      fi
+    done
+  echo \\"$profile_name\\"
+}
+set_theme $1"
+`;
+
+exports[`themer Alfred.app theme template should render properly 2`] = `
+"#!/bin/bash
+
+gnome_color () {
+  AA=\${1:1:2}
+  BB=\${1:3:2}
+  CC=\${1:5:2}
+
+  echo \\"#\${AA}\${AA}\${BB}\${BB}\${CC}\${CC}\\"
+}
+
+rgb_color() {
+  hexinput=$(echo $1 | cut -c2-7 | tr '[:lower:]' '[:upper:]')  # uppercase
+  a=$(echo $hexinput | cut -c-2)
+  b=$(echo $hexinput | cut -c3-4)
+  c=$(echo $hexinput | cut -c5-6)
+
+  r=$(echo \\"ibase=16; $a\\" | bc)
+  g=$(echo \\"ibase=16; $b\\" | bc)
+  b=$(echo \\"ibase=16; $c\\" | bc)
+
+  echo \\"rgb(\${r}, \${g}, \${b})\\"
+}
+
+COLOR_01=$(rgb_color \\"#FFFCFF\\")              # HOST
+COLOR_02=$(rgb_color \\"#F03E4D\\")           # SYNTAX_STRING
+COLOR_03=$(rgb_color \\"#97BD2D\\")           # COMMAND
+COLOR_04=$(rgb_color \\"#EEBA21\\")           # COMMAND_COLOR2
+COLOR_05=$(rgb_color \\"#53A6E1\\")           # PATH
+COLOR_06=$(rgb_color \\"#EE4EB8\\")           # SYNTAX_VAR
+COLOR_07=$(rgb_color \\"#1FC598\\")           # PROMPT
+COLOR_08=$(rgb_color \\"#474247\\")           #
+
+COLOR_09=$(rgb_color \\"#E0DCE0\\")           #
+COLOR_10=$(rgb_color \\"#F37735\\")           # COMMAND_ERROR
+COLOR_11=$(rgb_color \\"#1FC598\\")           # EXEC
+COLOR_12=$(rgb_color \\"#EEBA21\\")           #
+COLOR_13=$(rgb_color \\"#53A6E1\\")           # FOLDER
+COLOR_14=$(rgb_color \\"#EE4EB8\\")           #
+COLOR_15=$(rgb_color \\"#1FC598\\")           #
+COLOR_16=$(rgb_color \\"#282629\\")           #
+
+BACKGROUND_COLOR=$(gnome_color '#FFFCFF')
+FOREGROUND_COLOR=$(gnome_color '#474247')   # Text
+CURSOR_COLOR=$(gnome_color '#BF65F0') # Cursor
+
+gnomeVersion=\\"$(expr \\"$(gnome-terminal --version)\\" : '.* (.*[.].*[.].*)$')\\"
+dircolors_checked=false
+
+profiles_path=/org/gnome/terminal/legacy/profiles:
+
+set_theme() {
+  profile=$(get_uuid $1)
+  profile_path=$profiles_path/$profile
+
+  dconf write $profile_path/palette \\"['\${COLOR_01}', '\${COLOR_02}', '\${COLOR_03}', '\${COLOR_04}', '\${COLOR_05}', '\${COLOR_06}', '\${COLOR_07}', '\${COLOR_08}', '\${COLOR_09}', '\${COLOR_10}', '\${COLOR_11}', '\${COLOR_12}', '\${COLOR_13}', '\${COLOR_14}', '\${COLOR_15}', '\${COLOR_16}']\\"
+
+  # set foreground, background and highlight color
+  # dconf write $profile_path/bold-color \\"'$SOME_COLOR'\\"
+  dconf write $profile_path/background-color \\"'$BACKGROUND_COLOR'\\"
+  dconf write $profile_path/foreground-color \\"'$FOREGROUND_COLOR'\\"
+
+  # make sure the profile is set to not use theme colors
+  dconf write $profile_path/use-theme-colors \\"false\\"
+
+  # set highlighted color to be different from foreground color
+  dconf write $profile_path/bold-color-same-as-fg \\"true\\"
+}
+
+
+get_uuid() {
+  profiles=($(dconf list $profiles_path/ | grep ^: | sed 's/\\\\///g'))
+  # Print the UUID linked to the profile name sent in parameter
+  local profile_name=$1
+  for i in \${!profiles[*]}
+    do
+      if [[ \\"$(dconf read $profiles_path/\${profiles[i]}/visible-name)\\" ==           \\"'$profile_name'\\" ]]
+        then echo \\"\${profiles[i]}\\"
+        return 0
+      fi
+    done
+  echo \\"$profile_name\\"
+}
+set_theme $1"
+`;
