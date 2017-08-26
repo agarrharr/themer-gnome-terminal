@@ -23,7 +23,7 @@ const render = (colors, options) => {
       accent7,
     } = colorSet.colors;
     return Promise.resolve({
-      name: `themer-alfred-${colorSet.name}.alfredappearance`,
+      name: `gnome-terminal-${colorSet.name}-install.sh`,
       contents: `#!/bin/bash
 
 gnome_color () {
