@@ -1,5 +1,7 @@
 # themer-gnome-terminal [![Travis](https://img.shields.io/travis/agarrharr/themer-gnome-terminal.svg)](https://travis-ci.org/agarrharr/themer-gnome-terminal)
 
+<a href="https://app.codesponsor.io/link/3owRGftAkghuGdjHaa955zEJ/agarrharr/themer-gnome-terminal" rel="nofollow"><img src="https://app.codesponsor.io/embed/3owRGftAkghuGdjHaa955zEJ/agarrharr/themer-gnome-terminal.svg" style="width: 888px; height: 68px;" alt="Sponsor" /></a>
+
 A GNOME Terminal theme generator for [themer](https://github.com/mjswensen/themer).
 
 ## Installation & usage
