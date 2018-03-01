@@ -20,5 +20,3 @@ To install your theme, run the following. Replace `Default` with the name of you
 chmod 755 gnome-terminal-dark-install.sh
 ./gnome-terminal-dark-install.sh Default
 ```
-
-<a href="https://app.codesponsor.io/link/3owRGftAkghuGdjHaa955zEJ/agarrharr/themer-gnome-terminal" rel="nofollow"><img src="https://app.codesponsor.io/embed/3owRGftAkghuGdjHaa955zEJ/agarrharr/themer-gnome-terminal.svg" style="width: 888px; height: 68px;" alt="Sponsor" /></a>
